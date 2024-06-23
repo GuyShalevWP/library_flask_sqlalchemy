@@ -4,51 +4,55 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Borrow Books</title>
-        <link rel="stylesheet" href="../styles/styles.css" />
-        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-        <script type="module" src="../hooks/borrow_book.js" defer></script>
+        <link rel="stylesheet" href="../styles/navbar.css" />
+        <link rel="stylesheet" href="../styles/borrow_book.css" />
+        <script
+            src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"
+            defer
+        ></script>
+        <script src="../hooks/auth.js" defer></script>
+        <script src="../hooks/borrow_book.js" defer></script>
     </head>
     <body>
-        <h1>Borrow Books</h1>
         <nav>
-            <a href="../index.html">Home</a> |
-            <a href="books.html">Manage Books</a> |
-            <a href="customers.html">Manage Customers</a> |
-            <a href="signin.html">Sign In</a> |
-            <a href="register.html">Register</a> |
-            <a href="#" id="signout-link" style="display: none">Sign Out</a>
+            <div class="nav-left">
+                <a href="../index.html">Home</a>
+                <a href="books.html">Books List</a>
+                <span id="manage-borrow-book-link"></span>
+                <span id="manage-customers-link"></span>
+            </div>
+            <div class="nav-right" id="nav-right">
+                <a href="signin.html">Sign In</a> |
+                <a href="register.html">Register</a>
+            </div>
         </nav>
-        <div id="welcome-message"></div>
-        <div>
-            <h2>Borrow a Book</h2>
-            <form id="borrowForm">
-                <label for="customer_id">Customer ID:</label>
-                <input type="number" id="customer_id" required />
+        <div class="form-container" id="borrow-book-container">
+            <h2>Borrow Books</h2>
+            <form id="borrowBookForm">
+                <label for="customer">Customer:</label>
+                <select id="customer" required>
+                    <!-- Customer options will be populated here -->
+                </select>
                 <br />
-                <label for="book_id">Book ID:</label>
-                <input type="number" id="book_id" required />
+                <label for="book">Book:</label>
+                <select id="book" required>
+                    <!-- Book options will be populated here -->
+                </select>
                 <br />
-                <label for="borrow_date">Borrow Date:</label>
-                <input
-                    type="text"
-                    id="borrow_date"
-                    placeholder="dd/mm/yyyy"
-                    required
-                />
-                <br />
-                <label for="return_type">Return Type:</label>
-                <select id="return_type" required>
-                    <option value="1">10 Days</option>
-                    <option value="2">5 Days</option>
-                    <option value="3">2 Days</option>
+                <label for="borrowType">Borrow Type:</label>
+                <select id="borrowType" required>
+                    <option value="1">10 days</option>
+                    <option value="2">5 days</option>
+                    <option value="3">2 days</option>
                 </select>
                 <br />
                 <button type="submit">Borrow Book</button>
             </form>
+            <div id="notification" class="notification"></div>
         </div>
-        <div>
-            <h2>Borrowed Books</h2>
-            <ul id="borrowedBooksList"></ul>
+        <div class="form-container" id="access-denied" style="display: none">
+            <h2>Access Denied</h2>
+            <p>Please sign in to borrow books.</p>
         </div>
     </body>
 </html>

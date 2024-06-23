@@ -1,0 +1,74 @@
+body {
+    font-family: 'Georgia', serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: url('../assets/images/old_library.webp');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+}
+
+.form-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    max-width: 600px;
+    margin: auto;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 80px;
+}
+
+h2 {
+    color: #3E2723;
+    margin-bottom: 15px;
+}
+
+label {
+    color: #3E2723;
+}
+
+select,
+button {
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+button {
+    background-color: #3E2723;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #5D4037;
+}
+
+.notification {
+    display: none;
+    margin-top: 15px;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.notification.error {
+    background-color: #ffcccc;
+    color: #a94442;
+}
+
+.notification.success {
+    background-color: #dff0d8;
+    color: #3c763d;
+}

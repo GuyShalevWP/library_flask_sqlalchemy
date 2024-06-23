@@ -7,6 +7,8 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    /* Center the content vertically */
     background-image: url('../assets/images/old_library.webp');
     background-size: cover;
     background-attachment: fixed;
@@ -15,20 +17,18 @@ body {
 
 /* Style the form container to be more compact and centered */
 .form-container {
-    flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 90%;
     max-width: 400px;
-    margin: auto;
     background-color: rgba(255, 255, 255, 0.8);
     padding: 15px;
     border-radius: 10px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    margin-top: 80px;
-    /* Adjusted to account for fixed navbar */
+    margin-top: 20px;
+    /* Optional: Adjust this as needed */
 }
 
 h2 {
@@ -75,4 +75,27 @@ button:hover {
     margin-top: 15px;
     font-size: 14px;
     color: green;
+}
+
+.welcome-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    /* Ensure it takes the full height of the viewport */
+    text-align: center;
+}
+
+.welcome-container h1 {
+    color: #3E2723;
+    font-size: 3em;
+    /* Adjust font size as needed */
+    margin: 0;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    /* Add a semi-transparent background */
+    border-radius: 10px;
+    /* Rounded corners */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    /* Optional: Add a subtle shadow */
 }

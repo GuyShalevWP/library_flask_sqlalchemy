@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
     }
 
-    window.updateNavbar();
+    updateNavbar();
 
     fetchCustomers();
 
@@ -91,13 +91,6 @@ const saveCustomerChanges = () => {
     const phone = document.getElementById('editPhone').value;
     const email = document.getElementById('editEmail').value;
 
-    console.log('Saving customer changes:', {
-        first_name: firstName,
-        last_name: lastName,
-        phone: phone,
-        email: email,
-    });
-
     axios
         .put(`http://127.0.0.1:7000/customer/${id}`, {
             first_name: firstName,
@@ -106,7 +99,6 @@ const saveCustomerChanges = () => {
             email: email,
         })
         .then((response) => {
-            console.log('Customer updated successfully:', response.data);
             showNotification('Customer details updated successfully');
             closeEditModal();
             fetchCustomers();
