@@ -14,13 +14,10 @@ def register():
     email = data.get('email')
     password = data.get('password')
     is_admin = data.get('is_admin', False)
-    admin_code = data.get('admin_code')
 
     if not first_name or not last_name or not phone or not email or not password:
         return jsonify({"error": "Missing information"}), 400
 
-    if is_admin and admin_code != 'admin123':
-        return jsonify({"error": "Invalid admin code"}), 400
 
     hashed_password = generate_password_hash(password)  # Use default method (pbkdf2:sha256)
     customer = Customer(
@@ -30,7 +27,6 @@ def register():
         email=email,
         password=hashed_password,
         is_admin=is_admin,
-        admin_code=admin_code
     )
     db.session.add(customer)
     db.session.commit()
@@ -51,4 +47,4 @@ def signin():
         return jsonify({"error": "Invalid credentials"}), 401
 
     return jsonify({"message": "Sign in successful", "user": {"id": customer.id, "first_name": customer.first_name, "last_name": customer.last_name, "email": customer.email,
-        "is_admin": customer.is_admin, "admin_code": customer.admin_code}}), 200
+        "is_admin": customer.is_admin}}), 200
