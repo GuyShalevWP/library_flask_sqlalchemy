@@ -50,4 +50,5 @@ def signin():
     if not customer or not check_password_hash(customer.password, password):
         return jsonify({"error": "Invalid credentials"}), 401
 
-    return jsonify({"message": "Sign in successful", "user": {"id": customer.id, "first_name": customer.first_name, "last_name": customer.last_name, "email": customer.email}}), 200
+    return jsonify({"message": "Sign in successful", "user": {"id": customer.id, "first_name": customer.first_name, "last_name": customer.last_name, "email": customer.email,
+        "is_admin": customer.is_admin, "admin_code": customer.admin_code}}), 200

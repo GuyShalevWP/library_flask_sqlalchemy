@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
     const form = document.getElementById('registerForm');
     form.addEventListener('submit', function (event) {
-        event.preventDefault(); // Prevent default form submission behavior
+        event.preventDefault();
         console.log('Form submission prevented');
 
         const first_name = document.getElementById('first_name').value;
@@ -19,15 +19,17 @@ document.addEventListener('DOMContentLoaded', function () {
                 phone: phone,
                 email: email,
                 password: password,
-                is_admin: false,
+                is_admin: false, // Default to false, change if necessary
             })
             .then((response) => {
                 console.log('Registration successful', response.data);
+                const user = response.data.user;
+                localStorage.setItem('user', JSON.stringify(user)); // Store user data in localStorage
                 const messageDiv = document.getElementById('message');
                 messageDiv.innerText =
-                    'Registration successful! Redirecting to sign-in page...';
+                    'Registration successful! Redirecting to home page...';
                 messageDiv.style.color = 'green';
-                window.location.href = 'signin.html';
+                window.location.href = '../index.html'; // Redirect to home page
             })
             .catch((error) => {
                 console.error('Registration failed', error);
@@ -36,4 +38,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 messageDiv.style.color = 'red';
             });
     });
+
+    // Call updateNavbar from auth.js
+    window.updateNavbar();
 });

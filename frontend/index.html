@@ -10,6 +10,7 @@
             src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"
             defer
         ></script>
+        <script src="hooks/auth.js" defer></script>
         <script src="hooks/script.js" defer></script>
     </head>
     <body>
@@ -17,8 +18,8 @@
             <div class="nav-left">
                 <a href="#">Home</a>
                 <a href="pages/books.html">Books List</a> |
-                <a href="pages/borrow_book.html">Borrow Books</a> |
-                <a href="pages/customers.html">Manage Customers</a>
+                <a href="pages/borrow_book.html">Borrow Books</a>
+                <span id="manage-customers-link"></span>
             </div>
             <div class="nav-right" id="nav-right">
                 <a href="pages/signin.html">Sign In</a> |
