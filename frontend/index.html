@@ -6,6 +6,11 @@
         <title>Library Management</title>
         <link rel="stylesheet" href="styles/navbar.css" />
         <link rel="stylesheet" href="styles/home_page.css" />
+        <script
+            src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"
+            defer
+        ></script>
+        <script src="hooks/script.js" defer></script>
     </head>
     <body>
         <nav>
@@ -15,7 +20,7 @@
                 <a href="pages/borrow_book.html">Borrow Books</a> |
                 <a href="pages/customers.html">Manage Customers</a>
             </div>
-            <div class="nav-right">
+            <div class="nav-right" id="nav-right">
                 <a href="pages/signin.html">Sign In</a> |
                 <a href="pages/register.html">Register</a>
             </div>
