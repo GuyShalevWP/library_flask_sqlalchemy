@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Borrow Books</title>
+        <link rel="stylesheet" href="../styles/styles.css" />
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script type="module" src="../hooks/borrow_book.js" defer></script>
+    </head>
+    <body>
+        <h1>Borrow Books</h1>
+        <nav>
+            <a href="../index.html">Home</a> |
+            <a href="books.html">Manage Books</a> |
+            <a href="customers.html">Manage Customers</a> |
+            <a href="signin.html">Sign In</a> |
+            <a href="register.html">Register</a> |
+            <a href="#" id="signout-link" style="display: none">Sign Out</a>
+        </nav>
+        <div id="welcome-message"></div>
+        <div>
+            <h2>Borrow a Book</h2>
+            <form id="borrowForm">
+                <label for="customer_id">Customer ID:</label>
+                <input type="number" id="customer_id" required />
+                <br />
+                <label for="book_id">Book ID:</label>
+                <input type="number" id="book_id" required />
+                <br />
+                <label for="borrow_date">Borrow Date:</label>
+                <input
+                    type="text"
+                    id="borrow_date"
+                    placeholder="dd/mm/yyyy"
+                    required
+                />
+                <br />
+                <label for="return_type">Return Type:</label>
+                <select id="return_type" required>
+                    <option value="1">10 Days</option>
+                    <option value="2">5 Days</option>
+                    <option value="3">2 Days</option>
+                </select>
+                <br />
+                <button type="submit">Borrow Book</button>
+            </form>
+        </div>
+        <div>
+            <h2>Borrowed Books</h2>
+            <ul id="borrowedBooksList"></ul>
+        </div>
+    </body>
+</html>

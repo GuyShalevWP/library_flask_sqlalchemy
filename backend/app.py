@@ -4,6 +4,7 @@ from helpers.database import init_db
 from routes.books import books_bp
 from routes.customers import customers_bp
 from routes.borrowed_books import borrowed_books_bp
+from routes.auth import auth_bp
 from models import db
 
 app = Flask(__name__)
@@ -27,6 +28,7 @@ init_db(app)
 app.register_blueprint(books_bp)
 app.register_blueprint(customers_bp)
 app.register_blueprint(borrowed_books_bp)
+app.register_blueprint(auth_bp)
 
 if __name__ == '__main__':
     app.run(debug=True, port=7000)

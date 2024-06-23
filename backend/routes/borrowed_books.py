@@ -43,3 +43,14 @@ def get_borrowed_books():
     } for borrowed_book in borrowed_books]
     
     return jsonify(borrowed_books_list)
+
+@borrowed_books_bp.route("/borrow/<int:id>", methods=['DELETE'])
+def return_book(id):
+    borrowed_book = BorrowedBook.query.get(id)
+    if not borrowed_book:
+        return jsonify({"error": "Borrowed book ID not found"}), 404
+
+    db.session.delete(borrowed_book)
+    db.session.commit()
+
+    return jsonify({"message": "Book returned successfully"}), 200

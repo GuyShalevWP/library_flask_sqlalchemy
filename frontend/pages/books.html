@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Manage Books</title>
+        <link rel="stylesheet" href="../styles/styles.css" />
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script src="../hooks/books.js"></script>
+    </head>
+    <body>
+        <h1>Manage Books</h1>
+        <nav>
+            <a href="../index.html">Home</a> |
+            <a href="borrow_book.html">Borrow Books</a> |
+            <a href="customers.html">Manage Customers</a> |
+            <a href="signin.html">Sign In</a> |
+            <a href="register.html">Register</a>
+        </nav>
+        <div>
+            <h2>Add a Book</h2>
+            <form id="bookForm">
+                <label for="name">Name:</label>
+                <input type="text" id="name" required />
+                <br />
+                <label for="author">Author:</label>
+                <input type="text" id="author" required />
+                <br />
+                <label for="release_date">Release Date:</label>
+                <input
+                    type="text"
+                    id="release_date"
+                    placeholder="dd/mm/yyyy"
+                    required
+                />
+                <br />
+                <label for="is_available">Available:</label>
+                <input type="checkbox" id="is_available" />
+                <br />
+                <button type="submit">Add Book</button>
+            </form>
+        </div>
+        <div>
+            <h2>Books List</h2>
+            <ul id="booksList"></ul>
+        </div>
+    </body>
+</html>
